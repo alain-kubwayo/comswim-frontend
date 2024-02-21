@@ -6,7 +6,7 @@ import AuthSidebar from './components/AuthSidebar.vue'
 <template>
   <div>
 
-    <div class="flex min-h-screen">
+    <div class="flex h-screen">
       <div class="flex flex-row w-full">
         <AuthSidebar />
         <router-view />

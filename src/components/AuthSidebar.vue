@@ -2,18 +2,21 @@
 </script>
 
 <template>
-    <div class="hidden lg:flex flex-col justify-between bg-sky-800 lg:p-8 xl:p-12 lg:max-w-sm xl:max-w-lg text-white">
+    <div class="flex-col justify-between hidden text-white lg:flex bg-sky-800 lg:p-8 xl:p-12 lg:max-w-sm xl:max-w-lg">
       <div class="flex items-center justify-start space-x-3">
-        <span class="bg-white rounded-full w-8 h-8"></span>
-        <a href="/" class="text-xl font-extrabold">ComSwim</a>
+        <span class="w-8 h-8 bg-white rounded-full"></span>
+        <router-link to="/" class="text-xl font-extrabold">ComSwim</router-link>
       </div>
       <div class="space-y-10">
-        <h1 class="lg:text-2xl xl:text-4xl xl:leading-snug font-extrabold">
+        <h1 class="font-extrabold lg:text-2xl xl:text-4xl xl:leading-snug">
           We Shape Future Swimmers.
         </h1>
         <div class="space-y-3">
           <div class="w-1/6">
             <router-link :to="{ name: 'Login' }">Login</router-link>
+          </div>
+          <div class="w-1/6">
+            <router-link :to="{ name: 'Register' }">Register</router-link>
           </div>
         </div>
       </div>
