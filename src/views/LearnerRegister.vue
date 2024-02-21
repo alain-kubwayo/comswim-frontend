@@ -6,10 +6,10 @@
       class="flex flex-col justify-start flex-1 w-full h-full max-w-md py-12 space-y-5"
     >
       <div class="flex flex-col space-y-2 text-center">
-        <h2 class="text-3xl font-bold md:text-4xl">
+        <h2 class="text-2xl font-bold md:text-3xl">
           Hello, learner! welcome :)
         </h2>
-        <h3 class="text-xl font-bold md:text-2xl">
+        <h3 class="text-lg font-bold md:text-xl">
           Let's get you an account ASAP. 🚀
         </h3>
         <p class="text-md">
