@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/poppins": "^5.0.8",
     "axios": "^1.6.7",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
