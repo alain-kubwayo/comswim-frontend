@@ -15,4 +15,15 @@ const login = async (formData) => {
   }
 };
 
-export { user, login, authError }; 
+const register = async (formData) => {
+  try {
+    await api.get('/sanctum/csrf-cookie');
+    const response = await api.post('api/register', formData);
+    user.value = response.data;
+    authError.value = null;
+  } catch (error) {
+    authError.value = error.response.data;
+  }
+}
+
+export { user, login, register, authError }; 

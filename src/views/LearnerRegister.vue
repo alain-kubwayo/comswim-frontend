@@ -16,6 +16,9 @@
           Just few information and you're on your way to becoming a world-class
           swimmer!
         </p>
+        <div v-if="authError" class="py-4 text-center text-red-500">
+            {{ authError.message }}
+        </div>
       </div>
       <form
         @submit.prevent="handleRegister"
@@ -24,46 +27,49 @@
         <input
           type="text"
           placeholder="First Name"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
-        />
-        <input
-          type="text"
-          placeholder="Middle Name"
+          v-model="formData.first_name"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="text"
           placeholder="Last Name"
+          v-model="formData.last_name"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="date"
           placeholder="Date of Birth"
+          v-model="formData.date_of_birth"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="text"
           placeholder="Residential Address"
+          v-model="formData.residential_address"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="text"
           placeholder="Postal Address"
+          v-model="formData.postal_address"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="text"
           placeholder="Telephone"
+          v-model="formData.telephone"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="email"
           placeholder="Email"
+          v-model="formData.email"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="password"
           placeholder="Password"
+          v-model="formData.password"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
         />
         <div class="grid grid-cols-2 gap-x-2">
@@ -83,10 +89,11 @@
                     id="yes-chest-disorders"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.chest_disorders"
                   />
                   <label
                     for="yes-chest-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -98,10 +105,11 @@
                     id="no-chest-disorders"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.chest_disorders"
                   />
                   <label
                     for="no-chest-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -125,10 +133,11 @@
                     id="yes-physical-injuries"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.physical_injuries"
                   />
                   <label
                     for="yes-physical-injuries"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -140,10 +149,11 @@
                     id="no-physical-injuries"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.physical_injuries"
                   />
                   <label
                     for="no-physical-injuries"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -170,10 +180,11 @@
                     id="yes-ear-disorders"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.ear_disorders"
                   />
                   <label
                     for="yes-ear-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -185,10 +196,11 @@
                     id="no-ear-disorders"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.ear_disorders"
                   />
                   <label
                     for="no-ear-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -212,10 +224,11 @@
                     id="yes-allergies"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.allergies"
                   />
                   <label
                     for="yes-allergies"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -227,10 +240,11 @@
                     id="no-allergies"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.allergies"
                   />
                   <label
                     for="no-allergies"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -257,10 +271,11 @@
                     id="yes-heart-disorders"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.heart_disorders"
                   />
                   <label
                     for="yes-heart-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -272,10 +287,11 @@
                     id="no-heart-disorders"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.heart_disorders"
                   />
                   <label
                     for="no-heart-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -299,10 +315,11 @@
                     id="yes-lung-disorders"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.lung_disorders"
                   />
                   <label
                     for="yes-lung-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -314,10 +331,11 @@
                     id="no-lung-disorders"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.lung_disorders"
                   />
                   <label
                     for="no-lung-disorders"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -344,10 +362,11 @@
                     id="yes-low-muscle-tones"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.low_muscle_tones"
                   />
                   <label
                     for="yes-low-muscle-tones"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -359,10 +378,11 @@
                     id="no-low-muscle-tones"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.low_muscle_tones"
                   />
                   <label
                     for="no-low-muscle-tones"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -386,10 +406,11 @@
                     id="yes-spectacles"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.wears_spectacles"
                   />
                   <label
                     for="yes-spectacles"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -401,10 +422,11 @@
                     id="no-spectacles"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.wears_spectacles"
                   />
                   <label
                     for="no-spectacles"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -431,10 +453,11 @@
                     id="yes-medication"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.takes_medication"
                   />
                   <label
                     for="yes-medication"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -446,10 +469,11 @@
                     id="no-medication"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.takes_medication"
                   />
                   <label
                     for="no-medication"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -473,10 +497,11 @@
                     id="yes-past-swimming-lessons"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.past_swimming_lessons"
                   />
                   <label
                     for="yes-past-swimming-lessons"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -488,10 +513,11 @@
                     id="no-past-swimming-lessons"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.past_swimming_lessons"
                   />
                   <label
                     for="no-past-swimming-lessons"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -500,6 +526,7 @@
               <input
                 type="text"
                 placeholder="If so, instructor/duration"
+                v-model="formData.past_swimming_instructor_duration"
                 class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
               />
             </div>
@@ -523,10 +550,11 @@
                     id="yes-bad-experiences"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.bad_experiences"
                   />
                   <label
                     for="yes-bad-experiences"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -538,10 +566,11 @@
                     id="no-bad-experiences"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.bad_experiences"
                   />
                   <label
                     for="no-bad-experiences"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -564,11 +593,12 @@
                     type="radio"
                     id="m-gender"
                     hidden="hidden"
-                    value="Yes"
+                    value="M"
+                    v-model="formData.gender"
                   />
                   <label
                     for="m-gender"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     M
                   </label>
@@ -579,11 +609,12 @@
                     type="radio"
                     id="f-gender"
                     hidden="hidden"
-                    value="No"
+                    value="F"
+                    v-model="formData.gender"
                   />
                   <label
                     for="f-gender"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     F
                   </label>
@@ -610,10 +641,11 @@
                     id="yes-medical-aid"
                     hidden="hidden"
                     value="Yes"
+                    v-model="formData.medical_aid_membership"
                   />
                   <label
                     for="yes-medical-aid"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     Yes
                   </label>
@@ -625,10 +657,11 @@
                     id="no-medical-aid"
                     hidden="hidden"
                     value="No"
+                    v-model="formData.medical_aid_membership"
                   />
                   <label
                     for="no-medical-aid"
-                    class="flex items-center justify-center w-6 h-6 px-2 py-1 text-xl font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
                   </label>
@@ -640,6 +673,7 @@
             <input
               type="text"
               placeholder="If so, name of medical aid"
+              v-model="formData.medical_aid_name"
               class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
@@ -650,6 +684,7 @@
             <input
               type="text"
               placeholder="Medical aid number"
+              v-model="formData.medical_aid_number"
               class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
@@ -657,6 +692,7 @@
             <input
               type="text"
               placeholder="Main member - full name"
+              v-model="formData.main_member_full_name"
               class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
@@ -665,13 +701,14 @@
         <fieldset class="mb-5">
           <div class="flex items-center mb-4">
             <input
-              id="checkbox-1"
-              aria-describedby="checkbox-1"
+              id="accept-fees"
+              aria-describedby="accept-fees"
               type="checkbox"
+              v-model="acceptFees"
               class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
             />
             <label
-              for="checkbox-1"
+              for="accept-fees"
               class="ml-3 text-sm font-medium text-gray-900"
               >I hereby undertake to pay all the fees</label
             >
@@ -679,13 +716,14 @@
 
           <div class="flex items-center mb-4">
             <input
-              id="checkbox-2"
-              aria-describedby="checkbox-2"
+              id="certify-information"
+              aria-describedby="certify-information"
               type="checkbox"
+              v-model="certifyInformation"
               class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
             />
             <label
-              for="checkbox-2"
+              for="certify-information"
               class="ml-3 text-sm font-medium text-gray-900"
               >I certify that all the information contained herein is true and
               correct</label
@@ -694,11 +732,14 @@
         </fieldset>
         <button
           type="submit"
-          class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white bg-black border-2 border-black rounded-lg md:px-4 md:py-3"
+          :disabled="!acceptFees || !certifyInformation"
+          :class="{ 'disabled-btn': !acceptFees || !certifyInformation }"
+          class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white bg-black border-2 border-black rounded-lg md:px-4 md:py-3 { 'disabled-btn': !acceptFees || !certifyInformation }"
         >
           Apply
         </button>
       </form>
+      <div v-if="user" class="text-green-800">{{ user }}</div>
       <div
         class="flex flex-col justify-center pb-8 m-auto text-xs text-center text-gray-600"
       >
@@ -712,9 +753,82 @@
 
 <script>
 
+import { ref } from 'vue';
+import { user, authError, register } from '../composables/useAuth';
+
 export default {
   setup() {
-    return {};
+    const acceptFees = ref(false);
+    const certifyInformation = ref(false);
+    const formData = ref({
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      date_of_birth: '',
+      gender: '',
+      telephone: '',
+      residential_address: '',
+      postal_address: '',
+      chest_disorders: '',
+      physical_injuries: '',
+      ear_disorders: '',
+      allergies: '',
+      heart_disorders: '',
+      lung_disorders: '',
+      low_muscle_tones: '',
+      wears_spectacles: '',
+      takes_medication: '',
+      past_swimming_lessons: '',
+      past_swimming_instructor_duration: '',
+      bad_experiences: '',
+      medical_aid_membership: '',
+      medical_aid_membership: '',
+      medical_aid_name: '',
+      medical_aid_number: '',
+      main_member_full_name: '',
+      accept_fees: false,
+      certify_information: false,
+    });
+
+    const handleRegister = () => {
+      register(formData.value)
+        .then(() => {
+          formData.value.first_name = '';
+          formData.value.last_name = '';
+          formData.value.email = '';
+          formData.value.password = '';
+          formData.value.residential_address = '';
+          formData.value.postal_address = '';
+          formData.value.ear_disorders = '',
+          formData.value.allergies = '',
+          formData.value.heart_disorders = '',
+          formData.value.lung_disorders = '',
+          formData.value.low_muscle_tones = '',
+          formData.value.wears_spectacles = '',
+          formData.value.takes_medication = '',
+          formData.value.past_swimming_lessons = '',
+          formData.value.past_swimming_instructor_duration = '',
+          formData.value.bad_experiences = '',
+          formData.value.medical_aid_membership = '',
+          formData.value.medical_aid_membership = '',
+          formData.value.medical_aid_name = '',
+          formData.value.medical_aid_number = '',
+          formData.value.main_member_full_name = ''
+        })
+        .catch( err => {
+          console.error('Error while submitting the form', err);
+        });
+    }
+
+    return {
+      user,
+      authError,
+      formData,
+      acceptFees,
+      certifyInformation,
+      handleRegister
+    };
   },
 };
 </script>
@@ -726,5 +840,8 @@ export default {
 .radio input:checked ~ label {
   background-color: #2596be;
   color: white;
+}
+.disabled-btn {
+  @apply cursor-not-allowed bg-gray-300 border-none text-gray-700;
 }
 </style>
