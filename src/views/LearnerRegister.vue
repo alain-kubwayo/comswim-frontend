@@ -24,54 +24,142 @@
         @submit.prevent="handleRegister"
         class="flex flex-col max-w-md space-y-5"
       >
+        <div>
+          <div class="flex">
+            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 1 of 4</h2>
+          </div>
+          <div class="border-l-8 border-sky-800">
+            <div class="px-2 bg-gray-100 rounded-md">
+              <h3 class="text-base font-semibold lg:text-xl">Account Information</h3>
+              <p>Fill in the details to help us create the account for you.</p>
+            </div>
+          </div>
+        </div>
         <input
           type="text"
           placeholder="First Name"
           v-model="formData.first_name"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="text"
           placeholder="Last Name"
           v-model="formData.last_name"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
-        />
-        <input
-          type="date"
-          placeholder="Date of Birth"
-          v-model="formData.date_of_birth"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
-        />
-        <input
-          type="text"
-          placeholder="Residential Address"
-          v-model="formData.residential_address"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
-        />
-        <input
-          type="text"
-          placeholder="Postal Address"
-          v-model="formData.postal_address"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
-        />
-        <input
-          type="text"
-          placeholder="Telephone"
-          v-model="formData.telephone"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="email"
           placeholder="Email"
           v-model="formData.email"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
         <input
           type="password"
           placeholder="Password"
           v-model="formData.password"
-          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <div>
+          <div class="flex">
+            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 2 of 4</h2>
+          </div>
+          <div class="border-l-8 border-sky-800">
+            <div class="px-2 bg-gray-100 rounded-md">
+              <h3 class="text-base font-semibold lg:text-xl">Contact Information</h3>
+              <p>Fill in the details to help us get in touch with you.</p>
+            </div>
+          </div>
+        </div>
+        <input
+          type="text"
+          placeholder="Telephone"
+          v-model="formData.telephone"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
+        />
+        <input
+          type="text"
+          placeholder="Residential Address"
+          v-model="formData.residential_address"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
+        />
+        <input
+          type="text"
+          placeholder="Postal Address"
+          v-model="formData.postal_address"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
+        />
+        <div>
+          <div class="flex">
+            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 3 of 4</h2>
+          </div>
+          <div class="border-l-8 border-sky-800">
+            <div class="px-2 bg-gray-100 rounded-md">
+              <h3 class="text-base font-semibold lg:text-xl">Other Personal Information</h3>
+              <p>Fill in the details to help us get in touch with you.</p>
+            </div>
+          </div>
+        </div>
+        <input
+          type="date"
+          placeholder="Date of Birth"
+          v-model="formData.date_of_birth"
+          class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
+        />
+        <div>
+          <label
+            for="entry"
+            class="block mb-2 text-sm font-semibold text-gray-700 lg:text-base"
+          >
+            Sex:
+          </label>
+          <div class="w-full">
+            <div>
+              <div class="inline-block radio">
+                <input
+                  name="gender"
+                  type="radio"
+                  id="m-gender"
+                  hidden="hidden"
+                  value="M"
+                  v-model="formData.gender"
+                />
+                <label
+                  for="m-gender"
+                  class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                >
+                  M
+                </label>
+              </div>
+              <div class="inline-block radio">
+                <input
+                  name="gender"
+                  type="radio"
+                  id="f-gender"
+                  hidden="hidden"
+                  value="F"
+                  v-model="formData.gender"
+                />
+                <label
+                  for="f-gender"
+                  class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
+                >
+                  F
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="flex">
+            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 4 of 4</h2>
+          </div>
+          <div class="border-l-8 border-sky-800">
+            <div class="px-2 bg-gray-100 rounded-md">
+              <h3 class="text-base font-semibold lg:text-xl">Health Information</h3>
+              <p>Fill in the details to help us know your health condition.</p>
+            </div>
+          </div>
+        </div>
         <div class="grid grid-cols-2 gap-x-2">
           <div class="mb-2">
             <label
@@ -524,10 +612,11 @@
                 </div>
               </div>
               <input
+                v-if="formData.past_swimming_lessons === 'Yes'"
                 type="text"
                 placeholder="If so, instructor/duration"
                 v-model="formData.past_swimming_instructor_duration"
-                class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+                class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
               />
             </div>
           </div>
@@ -573,50 +662,6 @@
                     class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
                   >
                     No
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mb-2">
-            <label
-              for="entry"
-              class="block mb-2 text-sm font-semibold text-gray-700 lg:text-base"
-            >
-              Sex:
-            </label>
-            <div class="w-full">
-              <div>
-                <div class="inline-block radio">
-                  <input
-                    name="gender"
-                    type="radio"
-                    id="m-gender"
-                    hidden="hidden"
-                    value="M"
-                    v-model="formData.gender"
-                  />
-                  <label
-                    for="m-gender"
-                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
-                  >
-                    M
-                  </label>
-                </div>
-                <div class="inline-block radio">
-                  <input
-                    name="gender"
-                    type="radio"
-                    id="f-gender"
-                    hidden="hidden"
-                    value="F"
-                    v-model="formData.gender"
-                  />
-                  <label
-                    for="f-gender"
-                    class="flex items-center justify-center w-8 h-8 px-2 py-1 text-base font-bold rounded-lg lg:text-lg lg:w-10 lg:h-10"
-                  >
-                    F
                   </label>
                 </div>
               </div>
@@ -671,10 +716,11 @@
           </div>
           <div class="mb-2">
             <input
+              v-if="formData.medical_aid_membership === 'Yes'"
               type="text"
               placeholder="If so, name of medical aid"
               v-model="formData.medical_aid_name"
-              class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+              class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
         </div>
@@ -682,18 +728,20 @@
         <div class="grid grid-cols-2 gap-x-2">
           <div class="mb-2">
             <input
+              v-if="formData.medical_aid_membership === 'Yes'"
               type="text"
               placeholder="Medical aid number"
               v-model="formData.medical_aid_number"
-              class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+              class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
           <div class="mb-2">
             <input
+              v-if="formData.medical_aid_membership === 'Yes'"
               type="text"
               placeholder="Main member - full name"
               v-model="formData.main_member_full_name"
-              class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal"
+              class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
         </div>
@@ -734,7 +782,7 @@
           type="submit"
           :disabled="!acceptFees || !certifyInformation"
           :class="{ 'disabled-btn': !acceptFees || !certifyInformation }"
-          class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white bg-black border-2 border-black rounded-lg md:px-4 md:py-3 { 'disabled-btn': !acceptFees || !certifyInformation }"
+          class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white bg-sky-800 hover:bg-white hover:text-black hover:border-2 border-2 border-sky-800 hover:border-black rounded-lg md:px-4 md:py-3 { 'disabled-btn': !acceptFees || !certifyInformation }"
         >
           Apply
         </button>

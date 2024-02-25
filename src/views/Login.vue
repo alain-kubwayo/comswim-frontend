@@ -1,13 +1,13 @@
 <template>
     <div class="relative flex flex-col items-center justify-center flex-1 px-10">
-        <div class="flex items-center justify-between w-full py-4 lg:hidden">
+        <div class="flex flex-col items-center w-full py-4 space-y-4 sm:space-y-0 sm:flex-row sm:justify-between lg:hidden">
             <div class="flex items-center justify-start space-x-3">
-            <span class="w-6 h-6 bg-black rounded-full"></span>
-            <a href="#" class="text-lg font-medium">ComSwim</a>
+                <span class="w-6 h-6 bg-black rounded-full"></span>
+                <router-link :to="{ name: 'Welcome' }" class="text-lg font-medium">ComSwim</router-link>
             </div>
             <div class="flex items-center space-x-2">
-            <span>Not a member? </span>
-            <a href="#" class="underline font-medium text-[#070eff]">Sign up now</a>
+                <span>Not a member? </span>
+                <router-link :to="{ name: 'Register' }" class="underline font-medium text-[#070eff]">Register</router-link>
             </div>
         </div>
         <div class="flex flex-col justify-center flex-1 max-w-md space-y-5">
@@ -23,20 +23,20 @@
                     type="email" 
                     placeholder="Email"
                     v-model="formData.email"
-                    class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal" 
+                    class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal" 
                 />
                 <input 
                     type="password" 
                     placeholder="Password"
                     v-model="formData.password"
-                    class="flex px-3 py-2 font-medium border-2 border-black rounded-lg md:px-4 md:py-3 placeholder:font-normal" 
+                    class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal" 
                 />
                 <div v-if="authError" class="text-red-500">
                     {{ authError.message }}
                 </div>
                 <button 
                     type="submit"
-                    class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white bg-black border-2 border-black rounded-lg md:px-4 md:py-3"
+                    class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white border-2 rounded-lg border-sky-800 hover:border-black bg-sky-800 hover:bg-white hover:text-black md:px-4 md:py-3"
                 >Sign in</button>
             </form>
         </div>
