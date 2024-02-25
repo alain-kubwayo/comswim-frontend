@@ -176,7 +176,7 @@
                     type="radio"
                     id="yes-chest-disorders"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.chest_disorders"
                   />
                   <label
@@ -192,7 +192,7 @@
                     type="radio"
                     id="no-chest-disorders"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.chest_disorders"
                   />
                   <label
@@ -220,7 +220,7 @@
                     type="radio"
                     id="yes-physical-injuries"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.physical_injuries"
                   />
                   <label
@@ -236,7 +236,7 @@
                     type="radio"
                     id="no-physical-injuries"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.physical_injuries"
                   />
                   <label
@@ -267,7 +267,7 @@
                     type="radio"
                     id="yes-ear-disorders"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.ear_disorders"
                   />
                   <label
@@ -283,7 +283,7 @@
                     type="radio"
                     id="no-ear-disorders"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.ear_disorders"
                   />
                   <label
@@ -311,7 +311,7 @@
                     type="radio"
                     id="yes-allergies"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.allergies"
                   />
                   <label
@@ -327,7 +327,7 @@
                     type="radio"
                     id="no-allergies"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.allergies"
                   />
                   <label
@@ -358,7 +358,7 @@
                     type="radio"
                     id="yes-heart-disorders"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.heart_disorders"
                   />
                   <label
@@ -374,7 +374,7 @@
                     type="radio"
                     id="no-heart-disorders"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.heart_disorders"
                   />
                   <label
@@ -402,7 +402,7 @@
                     type="radio"
                     id="yes-lung-disorders"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.lung_disorders"
                   />
                   <label
@@ -418,7 +418,7 @@
                     type="radio"
                     id="no-lung-disorders"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.lung_disorders"
                   />
                   <label
@@ -449,7 +449,7 @@
                     type="radio"
                     id="yes-low-muscle-tones"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.low_muscle_tones"
                   />
                   <label
@@ -465,7 +465,7 @@
                     type="radio"
                     id="no-low-muscle-tones"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.low_muscle_tones"
                   />
                   <label
@@ -493,7 +493,7 @@
                     type="radio"
                     id="yes-spectacles"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.wears_spectacles"
                   />
                   <label
@@ -509,7 +509,7 @@
                     type="radio"
                     id="no-spectacles"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.wears_spectacles"
                   />
                   <label
@@ -540,7 +540,7 @@
                     type="radio"
                     id="yes-medication"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.takes_medication"
                   />
                   <label
@@ -556,7 +556,7 @@
                     type="radio"
                     id="no-medication"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.takes_medication"
                   />
                   <label
@@ -584,7 +584,7 @@
                     type="radio"
                     id="yes-past-swimming-lessons"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.past_swimming_lessons"
                   />
                   <label
@@ -600,7 +600,7 @@
                     type="radio"
                     id="no-past-swimming-lessons"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.past_swimming_lessons"
                   />
                   <label
@@ -612,7 +612,7 @@
                 </div>
               </div>
               <input
-                v-if="formData.past_swimming_lessons === 'Yes'"
+                v-if="formData.past_swimming_lessons !== null && formData.past_swimming_lessons !== '0'"
                 type="text"
                 placeholder="If so, instructor/duration"
                 v-model="formData.past_swimming_instructor_duration"
@@ -638,7 +638,7 @@
                     type="radio"
                     id="yes-bad-experiences"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.bad_experiences"
                   />
                   <label
@@ -654,7 +654,7 @@
                     type="radio"
                     id="no-bad-experiences"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.bad_experiences"
                   />
                   <label
@@ -685,7 +685,7 @@
                     type="radio"
                     id="yes-medical-aid"
                     hidden="hidden"
-                    value="Yes"
+                    value="1"
                     v-model="formData.medical_aid_membership"
                   />
                   <label
@@ -701,7 +701,7 @@
                     type="radio"
                     id="no-medical-aid"
                     hidden="hidden"
-                    value="No"
+                    value="0"
                     v-model="formData.medical_aid_membership"
                   />
                   <label
@@ -716,7 +716,7 @@
           </div>
           <div class="mb-2">
             <input
-              v-if="formData.medical_aid_membership === 'Yes'"
+              v-if="formData.medical_aid_membership !== null && formData.medical_aid_membership !== '0'"
               type="text"
               placeholder="If so, name of medical aid"
               v-model="formData.medical_aid_name"
@@ -728,7 +728,7 @@
         <div class="grid grid-cols-2 gap-x-2">
           <div class="mb-2">
             <input
-              v-if="formData.medical_aid_membership === 'Yes'"
+              v-if="formData.medical_aid_membership !== null && formData.medical_aid_membership !== '0'"
               type="text"
               placeholder="Medical aid number"
               v-model="formData.medical_aid_number"
@@ -737,7 +737,7 @@
           </div>
           <div class="mb-2">
             <input
-              v-if="formData.medical_aid_membership === 'Yes'"
+              v-if="formData.medical_aid_membership !== null && formData.medical_aid_membership !== '0'"
               type="text"
               placeholder="Main member - full name"
               v-model="formData.main_member_full_name"
@@ -818,25 +818,22 @@ export default {
       telephone: '',
       residential_address: '',
       postal_address: '',
-      chest_disorders: '',
-      physical_injuries: '',
-      ear_disorders: '',
-      allergies: '',
-      heart_disorders: '',
-      lung_disorders: '',
-      low_muscle_tones: '',
-      wears_spectacles: '',
-      takes_medication: '',
-      past_swimming_lessons: '',
+      chest_disorders: null,
+      physical_injuries: null,
+      ear_disorders: null,
+      allergies: null,
+      heart_disorders: null,
+      lung_disorders: null,
+      low_muscle_tones: null,
+      wears_spectacles: null,
+      takes_medication: null,
+      past_swimming_lessons: null,
       past_swimming_instructor_duration: '',
-      bad_experiences: '',
-      medical_aid_membership: '',
-      medical_aid_membership: '',
+      bad_experiences: null,
+      medical_aid_membership: null,
       medical_aid_name: '',
       medical_aid_number: '',
       main_member_full_name: '',
-      accept_fees: false,
-      certify_information: false,
     });
 
     const handleRegister = () => {
@@ -848,18 +845,19 @@ export default {
           formData.value.password = '';
           formData.value.residential_address = '';
           formData.value.postal_address = '';
-          formData.value.ear_disorders = '',
-          formData.value.allergies = '',
-          formData.value.heart_disorders = '',
-          formData.value.lung_disorders = '',
-          formData.value.low_muscle_tones = '',
-          formData.value.wears_spectacles = '',
-          formData.value.takes_medication = '',
-          formData.value.past_swimming_lessons = '',
+          formData.value.chest_disorders = null;
+          formData.value.physical_injuries = null;
+          formData.value.ear_disorders = null,
+          formData.value.allergies = null,
+          formData.value.heart_disorders = null,
+          formData.value.lung_disorders = null,
+          formData.value.low_muscle_tones = null,
+          formData.value.wears_spectacles = null,
+          formData.value.takes_medication = null,
+          formData.value.past_swimming_lessons = null,
           formData.value.past_swimming_instructor_duration = '',
-          formData.value.bad_experiences = '',
-          formData.value.medical_aid_membership = '',
-          formData.value.medical_aid_membership = '',
+          formData.value.bad_experiences = null,
+          formData.value.medical_aid_membership = null,
           formData.value.medical_aid_name = '',
           formData.value.medical_aid_number = '',
           formData.value.main_member_full_name = ''
