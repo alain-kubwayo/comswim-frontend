@@ -95,7 +95,7 @@
           <div class="border-l-8 border-sky-800">
             <div class="px-2 bg-gray-100 rounded-md">
               <h3 class="text-base font-semibold lg:text-xl">Other Personal Information</h3>
-              <p>Fill in the details to help us get in touch with you.</p>
+              <p>Fill in the details to help us know you more.</p>
             </div>
           </div>
         </div>

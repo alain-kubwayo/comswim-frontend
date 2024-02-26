@@ -20,7 +20,7 @@
                     class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white border-2 rounded-lg bg-sky-800 md:px-4 md:py-3 border-sky-800 hover:border-black hover:bg-white hover:text-black"
                 >Learner</router-link>
                 <router-link 
-                    to="/" 
+                    :to="{ name: 'ParentRegister' }" 
                     class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white border-2 rounded-lg bg-sky-800 border-sky-800 md:px-4 md:py-3 hover:bg-white hover:text-black hover:border-black"
                 >Parent/Guardian</router-link>
         </div>
