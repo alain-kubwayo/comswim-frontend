@@ -24,6 +24,7 @@
           @submit.prevent="handleRegister"
           class="flex flex-col max-w-md space-y-5"
         >
+            <input type="hidden" v-model="formData.user_type" value="guardian">
             <div>
                 <div class="flex">
                     <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 1 of 4</h2>
@@ -38,13 +39,13 @@
           <input
             type="text"
             placeholder="Parent First Name"
-            v-model="formData.first_name"
+            v-model="formData.guardian_first_name"
             class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
           />
           <input
             type="text"
             placeholder="Parent Last Name"
-            v-model="formData.last_name"
+            v-model="formData.guardian_last_name"
             class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
           />
           <div>
@@ -832,6 +833,9 @@
       const acceptFees = ref(false);
       const certifyInformation = ref(false);
       const formData = ref({
+        user_type: 'guardian',
+        guardian_first_name: '',
+        guardian_last_name: '',
         first_name: '',
         last_name: '',
         email: '',
@@ -862,6 +866,8 @@
       const handleRegister = () => {
         register(formData.value)
           .then(() => {
+            formData.value.guardian_first_name = '',
+            formData.value.guardian_last_name = '',
             formData.value.first_name = '';
             formData.value.last_name = '';
             formData.value.email = '';
@@ -902,16 +908,16 @@
   };
   </script>
   <style>
-  .radio input ~ label {
-    background-color: rgb(233, 225, 225);
-    color: rgb(158, 146, 146);
-  }
-  .radio input:checked ~ label {
-    background-color: #2596be;
-    color: white;
-  }
-  .disabled-btn {
-    @apply cursor-not-allowed bg-gray-300 border-none text-gray-700;
-  }
+    .radio input ~ label {
+      background-color: rgb(233, 225, 225);
+      color: rgb(158, 146, 146);
+    }
+    .radio input:checked ~ label {
+      background-color: #2596be;
+      color: white;
+    }
+    .disabled-btn {
+      @apply cursor-not-allowed bg-gray-300 border-none text-gray-700;
+    }
   </style>
   
