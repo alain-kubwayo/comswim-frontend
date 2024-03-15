@@ -1,11 +1,9 @@
 <script setup>
-import AuthSidebar from './components/AuthSidebar.vue'
-
+  import AuthSidebar from './components/AuthSidebar.vue'
 </script>
 
 <template>
   <div>
-
     <div class="flex h-screen">
       <div class="flex flex-row w-full">
         <AuthSidebar />

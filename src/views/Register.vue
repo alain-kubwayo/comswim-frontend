@@ -1,5 +1,5 @@
 <template>
-    <div class="relative flex flex-col items-center justify-center flex-1 px-10">
+    <div class="relative flex flex-col items-center justify-center flex-1 px-10 bg-gray-100">
         <div class="flex flex-col items-center w-full py-4 space-y-4 sm:space-y-0 sm:flex-row sm:justify-between lg:hidden">
             <div class="flex items-center justify-start space-x-3">
                 <span class="w-6 h-6 bg-black rounded-full"></span>

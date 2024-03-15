@@ -1,6 +1,6 @@
 <template>
     <div
-      class="relative flex flex-col items-center flex-1 h-full px-10 overflow-y-scroll"
+      class="relative flex flex-col items-center flex-1 h-full px-10 overflow-y-scroll bg-gray-100"
     >
       <div
         class="flex flex-col justify-start flex-1 w-full h-full max-w-md py-12 space-y-5"
@@ -16,9 +16,6 @@
             Just few information about you and your child to make your child a world-class
             swimmer!
           </p>
-          <div v-if="authError" class="py-4 text-center text-red-500">
-              {{ authError.message }}
-          </div>
         </div>
         <form
           @submit.prevent="handleRegister"
@@ -30,7 +27,7 @@
                     <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 1 of 4</h2>
                 </div>
                 <div class="border-l-8 border-sky-800">
-                    <div class="px-2 bg-gray-100 rounded-md">
+                    <div class="px-2 bg-gray-200 rounded-md">
                         <h3 class="text-base font-semibold lg:text-xl">Parent Particulars</h3>
                         <p>Fill in the details to help us with your personal details.</p>
                     </div>
@@ -53,7 +50,7 @@
               <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 1 of 4</h2>
             </div>
             <div class="border-l-8 border-sky-800">
-              <div class="px-2 bg-gray-100 rounded-md">
+              <div class="px-2 bg-gray-200 rounded-md">
                 <h3 class="text-base font-semibold lg:text-xl">Account Information</h3>
                 <p>Fill in the details to help us create the account for you.</p>
               </div>
@@ -88,7 +85,7 @@
               <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 2 of 4</h2>
             </div>
             <div class="border-l-8 border-sky-800">
-              <div class="px-2 bg-gray-100 rounded-md">
+              <div class="px-2 bg-gray-200 rounded-md">
                 <h3 class="text-base font-semibold lg:text-xl">Parent Contact Information</h3>
                 <p>Fill in the details to help us get in touch with you.</p>
               </div>
@@ -117,7 +114,7 @@
               <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 3 of 4</h2>
             </div>
             <div class="border-l-8 border-sky-800">
-              <div class="px-2 bg-gray-100 rounded-md">
+              <div class="px-2 bg-gray-200 rounded-md">
                 <h3 class="text-base font-semibold lg:text-xl">Child Additional Information</h3>
                 <p>Fill in the details to help us know you more.</p>
               </div>
@@ -178,7 +175,7 @@
               <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 4 of 4</h2>
             </div>
             <div class="border-l-8 border-sky-800">
-              <div class="px-2 bg-gray-100 rounded-md">
+              <div class="px-2 rounded-md bg-gray-e00">
                 <h3 class="text-base font-semibold lg:text-xl">Child's Health Information</h3>
                 <p>Fill in the details to help us know your child's health condition.</p>
               </div>
@@ -826,10 +823,12 @@
   <script>
   
   import { ref } from 'vue';
+  import { useRouter } from 'vue-router';
   import { user, authError, register } from '../composables/useAuth';
   
   export default {
     setup() {
+      const router = useRouter();
       const acceptFees = ref(false);
       const certifyInformation = ref(false);
       const formData = ref({
@@ -876,20 +875,25 @@
             formData.value.postal_address = '';
             formData.value.chest_disorders = null;
             formData.value.physical_injuries = null;
-            formData.value.ear_disorders = null,
-            formData.value.allergies = null,
-            formData.value.heart_disorders = null,
-            formData.value.lung_disorders = null,
-            formData.value.low_muscle_tones = null,
-            formData.value.wears_spectacles = null,
-            formData.value.takes_medication = null,
-            formData.value.past_swimming_lessons = null,
-            formData.value.past_swimming_instructor_duration = '',
-            formData.value.bad_experiences = null,
-            formData.value.medical_aid_membership = null,
-            formData.value.medical_aid_name = '',
-            formData.value.medical_aid_number = '',
-            formData.value.main_member_full_name = ''
+            formData.value.ear_disorders = null;
+            formData.value.allergies = null;
+            formData.value.heart_disorders = null;
+            formData.value.lung_disorders = null;
+            formData.value.low_muscle_tones = null;
+            formData.value.wears_spectacles = null;
+            formData.value.takes_medication = null;
+            formData.value.past_swimming_lessons = null;
+            formData.value.past_swimming_instructor_duration = '';
+            formData.value.bad_experiences = null;
+            formData.value.medical_aid_membership = null;
+            formData.value.medical_aid_name = '';
+            formData.value.medical_aid_number = '';
+            formData.value.main_member_full_name = '';
+
+            router.push({
+              name: 'Login',
+              query: { message: 'Application submitted successfully. Verify your email before logging in.' }
+            })
           })
           .catch( err => {
             console.error('Error while submitting the form', err);
