@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
     <div class="flex-col justify-between hidden text-white lg:flex bg-sky-800 lg:p-8 xl:p-12 lg:max-w-sm xl:max-w-lg">
       <div class="flex items-center justify-start space-x-3">
@@ -14,6 +11,9 @@
           </div>
           <div class="w-1/6">
             <router-link :to="{ name: 'Register' }">Register</router-link>
+          </div>
+          <div class="w-1/6">
+            <router-link :to="{ name: 'Profile' }">Profile</router-link>
           </div>
         </div>
       </div>
