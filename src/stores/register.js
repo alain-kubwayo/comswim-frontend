@@ -7,7 +7,6 @@ export const useRegister = defineStore("register", () => {
   const errors = reactive({});
   const loading = ref(false);
   const formData = reactive({
-    user_type: "guardian",
     guardian_first_name: "",
     guardian_last_name: "",
     first_name: "",
@@ -38,8 +37,8 @@ export const useRegister = defineStore("register", () => {
   });
 
   function resetForm() {
-    formData.value.guardian_first_name = "";
-    formData.value.guardian_last_name = "";
+    formData.guardian_first_name = "";
+    formData.guardian_last_name = "";
     formData.first_name = "";
     formData.last_name = "";
     formData.email = "";
@@ -67,14 +66,14 @@ export const useRegister = defineStore("register", () => {
     formData.main_member_full_name = "";
   }
 
-  async function handleSubmit() {
+  async function handleSubmit(user_type) {
     if (loading.value) return;
 
     loading.value = true;
     errors.value = {};
 
     return window.axios
-      .post("api/register", formData)
+      .post("api/register", {...formData, user_type})
       .then((response) => {
         auth.login(response.data.token);
       })
