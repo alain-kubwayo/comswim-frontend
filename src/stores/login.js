@@ -14,7 +14,6 @@ export const useLogin = defineStore('login', () => {
     function resetForm() {
         formData.email = '';
         formData.password = '';
-        errors.value = '';
     }
 
     async function handleSubmit() {
@@ -30,7 +29,7 @@ export const useLogin = defineStore('login', () => {
             })
             .catch(error => {
                 if(error.response.status === 422) {
-                    console.log(error.response.data.errors)
+                    errors.value = error.response.data.errors
                 }
             })
             .finally(() => {

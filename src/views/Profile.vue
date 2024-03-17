@@ -387,7 +387,6 @@
 </template>
 
 <script>
-import api from "../services/api";
 import { onMounted, ref } from "vue";
 
 export default {
