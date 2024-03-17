@@ -6,6 +6,7 @@ import './style.css'
 import App from './App.vue'
 import ValidationError from './components/ValidationError.vue';
 import IconSpinner from './components/IconSpinner.vue';
+import Header from "./components/Header.vue";
 
 import "@fontsource/poppins/100.css"; 
 import "@fontsource/poppins/200.css"; 
@@ -25,4 +26,5 @@ app.use(createPinia())
 app.use(router)
 app.component("ValidationError", ValidationError)
 app.component("IconSpinner", IconSpinner)
+app.component("Header", Header)
 app.mount('#app')

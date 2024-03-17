@@ -18,17 +18,23 @@
         </p>
       </div>
       <form
-        @submit.prevent="store.handleSubmit"
+        @submit.prevent="store.handleSubmit('learner')"
         class="flex flex-col max-w-md space-y-5"
         novalidate
       >
         <div>
           <div class="flex">
-            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 1 of 4</h2>
+            <h2
+              class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl"
+            >
+              Section 1 of 4
+            </h2>
           </div>
           <div class="border-l-8 border-sky-800">
             <div class="px-2 bg-gray-200 rounded-md">
-              <h3 class="text-base font-semibold lg:text-xl">Account Information</h3>
+              <h3 class="text-base font-semibold lg:text-xl">
+                Account Information
+              </h3>
               <p>Fill in the details to help us create the account for you.</p>
             </div>
           </div>
@@ -67,11 +73,17 @@
         <ValidationError :errors="store.errors" field="password" />
         <div>
           <div class="flex">
-            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 2 of 4</h2>
+            <h2
+              class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl"
+            >
+              Section 2 of 4
+            </h2>
           </div>
           <div class="border-l-8 border-sky-800">
             <div class="px-2 bg-gray-200 rounded-md">
-              <h3 class="text-base font-semibold lg:text-xl">Contact Information</h3>
+              <h3 class="text-base font-semibold lg:text-xl">
+                Contact Information
+              </h3>
               <p>Fill in the details to help us get in touch with you.</p>
             </div>
           </div>
@@ -102,11 +114,17 @@
         <ValidationError :errors="store.errors" field="postal_address" />
         <div>
           <div class="flex">
-            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 3 of 4</h2>
+            <h2
+              class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl"
+            >
+              Section 3 of 4
+            </h2>
           </div>
           <div class="border-l-8 border-sky-800">
             <div class="px-2 bg-gray-200 rounded-md">
-              <h3 class="text-base font-semibold lg:text-xl">Other Personal Information</h3>
+              <h3 class="text-base font-semibold lg:text-xl">
+                Other Personal Information
+              </h3>
               <p>Fill in the details to help us know you more.</p>
             </div>
           </div>
@@ -167,11 +185,17 @@
         </div>
         <div>
           <div class="flex">
-            <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 4 of 4</h2>
+            <h2
+              class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl"
+            >
+              Section 4 of 4
+            </h2>
           </div>
           <div class="border-l-8 border-sky-800">
             <div class="px-2 bg-gray-100 rounded-md">
-              <h3 class="text-base font-semibold lg:text-xl">Health Information</h3>
+              <h3 class="text-base font-semibold lg:text-xl">
+                Health Information
+              </h3>
               <p>Fill in the details to help us know your health condition.</p>
             </div>
           </div>
@@ -628,7 +652,10 @@
                 </div>
               </div>
               <input
-                v-if="store.formData.past_swimming_lessons !== null && store.formData.past_swimming_lessons !== '0'"
+                v-if="
+                  store.formData.past_swimming_lessons !== null &&
+                  store.formData.past_swimming_lessons !== '0'
+                "
                 type="text"
                 placeholder="If so, instructor/duration"
                 v-model="store.formData.past_swimming_instructor_duration"
@@ -732,7 +759,10 @@
           </div>
           <div class="mb-2">
             <input
-              v-if="store.formData.medical_aid_membership !== null && store.formData.medical_aid_membership !== '0'"
+              v-if="
+                store.formData.medical_aid_membership !== null &&
+                store.formData.medical_aid_membership !== '0'
+              "
               type="text"
               placeholder="If so, name of medical aid"
               v-model="store.formData.medical_aid_name"
@@ -744,7 +774,10 @@
         <div class="grid grid-cols-2 gap-x-2">
           <div class="mb-2">
             <input
-              v-if="store.formData.medical_aid_membership !== null && store.formData.medical_aid_membership !== '0'"
+              v-if="
+                store.formData.medical_aid_membership !== null &&
+                store.formData.medical_aid_membership !== '0'
+              "
               type="text"
               placeholder="Medical aid number"
               v-model="store.formData.medical_aid_number"
@@ -753,7 +786,10 @@
           </div>
           <div class="mb-2">
             <input
-              v-if="store.formData.medical_aid_membership !== null && store.formData.medical_aid_membership !== '0'"
+              v-if="
+                store.formData.medical_aid_membership !== null &&
+                store.formData.medical_aid_membership !== '0'
+              "
               type="text"
               placeholder="Main member - full name"
               v-model="store.formData.main_member_full_name"
@@ -815,8 +851,8 @@
 </template>
 
 <script>
-import { onBeforeUnmount, ref } from 'vue';
-import { useRegister } from '../stores/register';
+import { onBeforeUnmount, ref } from "vue";
+import { useRegister } from "../stores/register";
 
 export default {
   setup() {
@@ -824,21 +860,21 @@ export default {
     onBeforeUnmount(store.resetForm);
     const acceptFees = ref(false);
     const certifyInformation = ref(false);
-    
+
     return { store, acceptFees, certifyInformation };
   },
 };
 </script>
 <style>
-  .radio input ~ label {
-    background-color: rgb(233, 225, 225);
-    color: rgb(158, 146, 146);
-  }
-  .radio input:checked ~ label {
-    background-color: #2596be;
-    color: white;
-  }
-  .disabled-btn {
-    @apply cursor-not-allowed bg-gray-300 border-none text-gray-700;
-  }
+.radio input ~ label {
+  background-color: rgb(233, 225, 225);
+  color: rgb(158, 146, 146);
+}
+.radio input:checked ~ label {
+  background-color: #2596be;
+  color: white;
+}
+.disabled-btn {
+  @apply cursor-not-allowed bg-gray-300 border-none text-gray-700;
+}
 </style>

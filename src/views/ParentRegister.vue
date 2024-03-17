@@ -17,8 +17,7 @@
           world-class swimmer!
         </p>
       </div>
-      <form @submit.prevent="store.handleSubmit" class="flex flex-col max-w-md space-y-5">
-        <input type="hidden" v-model="store.formData.user_type" value="guardian" />
+      <form @submit.prevent="store.handleSubmit('guardian')" class="flex flex-col max-w-md space-y-5">
         <div>
           <div class="flex">
             <h2
