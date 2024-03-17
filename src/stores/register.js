@@ -7,6 +7,9 @@ export const useRegister = defineStore("register", () => {
   const errors = reactive({});
   const loading = ref(false);
   const formData = reactive({
+    user_type: "guardian",
+    guardian_first_name: "",
+    guardian_last_name: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -35,6 +38,8 @@ export const useRegister = defineStore("register", () => {
   });
 
   function resetForm() {
+    formData.value.guardian_first_name = "";
+    formData.value.guardian_last_name = "";
     formData.first_name = "";
     formData.last_name = "";
     formData.email = "";
@@ -79,6 +84,8 @@ export const useRegister = defineStore("register", () => {
         }
       })
       .finally(() => {
+        formData.guardian_first_name = "";
+        formData.guardian_last_name = "";
         formData.first_name = "";
         formData.last_name = "";
         formData.email = "";
