@@ -18,8 +18,9 @@
         </p>
       </div>
       <form
-        @submit.prevent="handleRegister"
+        @submit.prevent="store.handleSubmit"
         class="flex flex-col max-w-md space-y-5"
+        novalidate
       >
         <div>
           <div class="flex">
@@ -35,27 +36,35 @@
         <input
           type="text"
           placeholder="First Name"
-          v-model="formData.first_name"
+          v-model="store.formData.first_name"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="first_name" />
         <input
           type="text"
           placeholder="Last Name"
-          v-model="formData.last_name"
+          v-model="store.formData.last_name"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="last_name" />
         <input
           type="email"
           placeholder="Email"
-          v-model="formData.email"
+          v-model="store.formData.email"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="email" />
         <input
           type="password"
           placeholder="Password"
-          v-model="formData.password"
+          v-model="store.formData.password"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="password" />
         <div>
           <div class="flex">
             <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 2 of 4</h2>
@@ -70,21 +79,27 @@
         <input
           type="text"
           placeholder="Telephone"
-          v-model="formData.telephone"
+          v-model="store.formData.telephone"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="telephone" />
         <input
           type="text"
           placeholder="Residential Address"
-          v-model="formData.residential_address"
+          v-model="store.formData.residential_address"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="residential_address" />
         <input
           type="text"
           placeholder="Postal Address"
-          v-model="formData.postal_address"
+          v-model="store.formData.postal_address"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="postal_address" />
         <div>
           <div class="flex">
             <h2 class="flex px-2 py-1 text-white uppercase bg-sky-800 rounded-t-xl">Section 3 of 4</h2>
@@ -99,9 +114,11 @@
         <input
           type="date"
           placeholder="Date of Birth"
-          v-model="formData.date_of_birth"
+          v-model="store.formData.date_of_birth"
+          required
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
+        <ValidationError :errors="store.errors" field="date_of_birth" />
         <div>
           <label
             for="entry"
@@ -118,7 +135,8 @@
                   id="m-gender"
                   hidden="hidden"
                   value="M"
-                  v-model="formData.gender"
+                  v-model="store.formData.gender"
+                  required
                 />
                 <label
                   for="m-gender"
@@ -134,7 +152,7 @@
                   id="f-gender"
                   hidden="hidden"
                   value="F"
-                  v-model="formData.gender"
+                  v-model="store.formData.gender"
                 />
                 <label
                   for="f-gender"
@@ -144,6 +162,7 @@
                 </label>
               </div>
             </div>
+            <ValidationError :errors="store.errors" field="gender" />
           </div>
         </div>
         <div>
@@ -174,7 +193,7 @@
                     id="yes-chest-disorders"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.chest_disorders"
+                    v-model="store.formData.chest_disorders"
                   />
                   <label
                     for="yes-chest-disorders"
@@ -190,7 +209,7 @@
                     id="no-chest-disorders"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.chest_disorders"
+                    v-model="store.formData.chest_disorders"
                   />
                   <label
                     for="no-chest-disorders"
@@ -218,7 +237,7 @@
                     id="yes-physical-injuries"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.physical_injuries"
+                    v-model="store.formData.physical_injuries"
                   />
                   <label
                     for="yes-physical-injuries"
@@ -234,7 +253,7 @@
                     id="no-physical-injuries"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.physical_injuries"
+                    v-model="store.formData.physical_injuries"
                   />
                   <label
                     for="no-physical-injuries"
@@ -265,7 +284,7 @@
                     id="yes-ear-disorders"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.ear_disorders"
+                    v-model="store.formData.ear_disorders"
                   />
                   <label
                     for="yes-ear-disorders"
@@ -281,7 +300,7 @@
                     id="no-ear-disorders"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.ear_disorders"
+                    v-model="store.formData.ear_disorders"
                   />
                   <label
                     for="no-ear-disorders"
@@ -309,7 +328,7 @@
                     id="yes-allergies"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.allergies"
+                    v-model="store.formData.allergies"
                   />
                   <label
                     for="yes-allergies"
@@ -325,7 +344,7 @@
                     id="no-allergies"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.allergies"
+                    v-model="store.formData.allergies"
                   />
                   <label
                     for="no-allergies"
@@ -356,7 +375,7 @@
                     id="yes-heart-disorders"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.heart_disorders"
+                    v-model="store.formData.heart_disorders"
                   />
                   <label
                     for="yes-heart-disorders"
@@ -372,7 +391,7 @@
                     id="no-heart-disorders"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.heart_disorders"
+                    v-model="store.formData.heart_disorders"
                   />
                   <label
                     for="no-heart-disorders"
@@ -400,7 +419,7 @@
                     id="yes-lung-disorders"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.lung_disorders"
+                    v-model="store.formData.lung_disorders"
                   />
                   <label
                     for="yes-lung-disorders"
@@ -416,7 +435,7 @@
                     id="no-lung-disorders"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.lung_disorders"
+                    v-model="store.formData.lung_disorders"
                   />
                   <label
                     for="no-lung-disorders"
@@ -447,7 +466,7 @@
                     id="yes-low-muscle-tones"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.low_muscle_tones"
+                    v-model="store.formData.low_muscle_tones"
                   />
                   <label
                     for="yes-low-muscle-tones"
@@ -463,7 +482,7 @@
                     id="no-low-muscle-tones"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.low_muscle_tones"
+                    v-model="store.formData.low_muscle_tones"
                   />
                   <label
                     for="no-low-muscle-tones"
@@ -491,7 +510,7 @@
                     id="yes-spectacles"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.wears_spectacles"
+                    v-model="store.formData.wears_spectacles"
                   />
                   <label
                     for="yes-spectacles"
@@ -507,7 +526,7 @@
                     id="no-spectacles"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.wears_spectacles"
+                    v-model="store.formData.wears_spectacles"
                   />
                   <label
                     for="no-spectacles"
@@ -538,7 +557,7 @@
                     id="yes-medication"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.takes_medication"
+                    v-model="store.formData.takes_medication"
                   />
                   <label
                     for="yes-medication"
@@ -554,7 +573,7 @@
                     id="no-medication"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.takes_medication"
+                    v-model="store.formData.takes_medication"
                   />
                   <label
                     for="no-medication"
@@ -582,7 +601,7 @@
                     id="yes-past-swimming-lessons"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.past_swimming_lessons"
+                    v-model="store.formData.past_swimming_lessons"
                   />
                   <label
                     for="yes-past-swimming-lessons"
@@ -598,7 +617,7 @@
                     id="no-past-swimming-lessons"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.past_swimming_lessons"
+                    v-model="store.formData.past_swimming_lessons"
                   />
                   <label
                     for="no-past-swimming-lessons"
@@ -609,10 +628,10 @@
                 </div>
               </div>
               <input
-                v-if="formData.past_swimming_lessons !== null && formData.past_swimming_lessons !== '0'"
+                v-if="store.formData.past_swimming_lessons !== null && store.formData.past_swimming_lessons !== '0'"
                 type="text"
                 placeholder="If so, instructor/duration"
-                v-model="formData.past_swimming_instructor_duration"
+                v-model="store.formData.past_swimming_instructor_duration"
                 class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
               />
             </div>
@@ -636,7 +655,7 @@
                     id="yes-bad-experiences"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.bad_experiences"
+                    v-model="store.formData.bad_experiences"
                   />
                   <label
                     for="yes-bad-experiences"
@@ -652,7 +671,7 @@
                     id="no-bad-experiences"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.bad_experiences"
+                    v-model="store.formData.bad_experiences"
                   />
                   <label
                     for="no-bad-experiences"
@@ -683,7 +702,7 @@
                     id="yes-medical-aid"
                     hidden="hidden"
                     value="1"
-                    v-model="formData.medical_aid_membership"
+                    v-model="store.formData.medical_aid_membership"
                   />
                   <label
                     for="yes-medical-aid"
@@ -699,7 +718,7 @@
                     id="no-medical-aid"
                     hidden="hidden"
                     value="0"
-                    v-model="formData.medical_aid_membership"
+                    v-model="store.formData.medical_aid_membership"
                   />
                   <label
                     for="no-medical-aid"
@@ -713,10 +732,10 @@
           </div>
           <div class="mb-2">
             <input
-              v-if="formData.medical_aid_membership !== null && formData.medical_aid_membership !== '0'"
+              v-if="store.formData.medical_aid_membership !== null && store.formData.medical_aid_membership !== '0'"
               type="text"
               placeholder="If so, name of medical aid"
-              v-model="formData.medical_aid_name"
+              v-model="store.formData.medical_aid_name"
               class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
@@ -725,19 +744,19 @@
         <div class="grid grid-cols-2 gap-x-2">
           <div class="mb-2">
             <input
-              v-if="formData.medical_aid_membership !== null && formData.medical_aid_membership !== '0'"
+              v-if="store.formData.medical_aid_membership !== null && store.formData.medical_aid_membership !== '0'"
               type="text"
               placeholder="Medical aid number"
-              v-model="formData.medical_aid_number"
+              v-model="store.formData.medical_aid_number"
               class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
           <div class="mb-2">
             <input
-              v-if="formData.medical_aid_membership !== null && formData.medical_aid_membership !== '0'"
+              v-if="store.formData.medical_aid_membership !== null && store.formData.medical_aid_membership !== '0'"
               type="text"
               placeholder="Main member - full name"
-              v-model="formData.main_member_full_name"
+              v-model="store.formData.main_member_full_name"
               class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
             />
           </div>
@@ -784,7 +803,6 @@
           Apply
         </button>
       </form>
-      <div v-if="user" class="text-green-800">{{ user }}</div>
       <div
         class="flex flex-col justify-center pb-8 m-auto text-xs text-center text-gray-600"
       >
@@ -797,88 +815,17 @@
 </template>
 
 <script>
-
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { user, authError, register } from '../composables/useAuth';
+import { onBeforeUnmount, ref } from 'vue';
+import { useRegister } from '../stores/register';
 
 export default {
   setup() {
-    const router = useRouter();
+    const store = useRegister();
+    onBeforeUnmount(store.resetForm);
     const acceptFees = ref(false);
     const certifyInformation = ref(false);
-    const formData = ref({
-      first_name: '',
-      last_name: '',
-      email: '',
-      password: '',
-      date_of_birth: '',
-      gender: '',
-      telephone: '',
-      residential_address: '',
-      postal_address: '',
-      chest_disorders: null,
-      physical_injuries: null,
-      ear_disorders: null,
-      allergies: null,
-      heart_disorders: null,
-      lung_disorders: null,
-      low_muscle_tones: null,
-      wears_spectacles: null,
-      takes_medication: null,
-      past_swimming_lessons: null,
-      past_swimming_instructor_duration: '',
-      bad_experiences: null,
-      medical_aid_membership: null,
-      medical_aid_name: '',
-      medical_aid_number: '',
-      main_member_full_name: '',
-    });
-
-    const handleRegister = () => {
-      register(formData.value)
-        .then(() => {
-          formData.value.first_name = '';
-          formData.value.last_name = '';
-          formData.value.email = '';
-          formData.value.password = '';
-          formData.value.residential_address = '';
-          formData.value.postal_address = '';
-          formData.value.chest_disorders = null;
-          formData.value.physical_injuries = null;
-          formData.value.ear_disorders = null;
-          formData.value.allergies = null;
-          formData.value.heart_disorders = null;
-          formData.value.lung_disorders = null;
-          formData.value.low_muscle_tones = null;
-          formData.value.wears_spectacles = null;
-          formData.value.takes_medication = null;
-          formData.value.past_swimming_lessons = null;
-          formData.value.past_swimming_instructor_duration = '';
-          formData.value.bad_experiences = null;
-          formData.value.medical_aid_membership = null;
-          formData.value.medical_aid_name = '';
-          formData.value.medical_aid_number = '';
-          formData.value.main_member_full_name = '';
-
-          router.push({
-            name: 'Login',
-            query: { message: 'Application submitted successfully. Verify your email before logging in.' }
-          });
-        })
-        .catch( err => {
-          console.error('Error while submitting the form', err);
-        });
-    }
-
-    return {
-      user,
-      authError,
-      formData,
-      acceptFees,
-      certifyInformation,
-      handleRegister
-    };
+    
+    return { store, acceptFees, certifyInformation };
   },
 };
 </script>

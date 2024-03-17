@@ -44,12 +44,14 @@ const routes = [
   {
     path: "/learner-register",
     name: "LearnerRegister",
-    component: LearnerRegister,
+    beforeEnter: guest,
+    component: LearnerRegister
   },
   {
     path: "/parent-register",
     name: "ParentRegister",
-    component: ParentRegister,
+    beforeEnter: guest,
+    component: ParentRegister
   },
   {
     path: "/user-profile",

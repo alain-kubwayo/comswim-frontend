@@ -35,7 +35,7 @@
           type="email"
           placeholder="Email"
           v-model="store.formData.email"
-          required
+       
           :disabled="store.loading"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
@@ -44,11 +44,11 @@
           type="password"
           placeholder="Password"
           v-model="store.formData.password"
-          required
+  
           :disabled="store.loading"
           class="flex px-3 py-2 font-medium border-2 border-black rounded-lg outline-none md:px-4 md:py-3 placeholder:font-normal"
         />
-        <ValidationError :errors="store.errors" field="email" />
+        <ValidationError :errors="store.errors" field="password" />
         <button
           type="submit"
           :disabled="store.loading"

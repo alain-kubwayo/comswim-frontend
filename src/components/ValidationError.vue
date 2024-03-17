@@ -1,9 +1,9 @@
 <template>
   <ul
-    v-if="errors && errors[field] && errors[field].length"
-    class="flex flex-col gap-1 text-red-600"
+    v-if="errors.value && errors.value[field] && errors.value[field].length"
+    class="text-red-600"
   >
-    <li v-for="message in errors[field]" :key="message">{{ message }}</li>
+    <li v-for="message in errors.value[field]" :key="message">{{ message }}</li>
   </ul>
 </template>
 
