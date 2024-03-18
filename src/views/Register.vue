@@ -24,7 +24,7 @@
                     class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white border-2 rounded-lg bg-sky-800 border-sky-800 md:px-4 md:py-3 hover:bg-white hover:text-black hover:border-black"
                 >Parent/Guardian</router-link>
         </div>
-        <div class="flex flex-col justify-center m-auto mb-16 text-xs text-center text-gray-600">
+        <div class="flex flex-col justify-center m-auto my-8 text-xs text-center text-gray-600">
             <p class="font-bold">Built by <a href="/" class="font-extrabold underline">ComSwim</a></p>  
         </div>
     </div>

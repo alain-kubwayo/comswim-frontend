@@ -3,8 +3,8 @@
     class="relative flex flex-col items-center flex-1 h-full overflow-y-scroll bg-gray-100"
     v-if="!store.loading.value && store.profileData.value"
   >
-    <Header :isOpen="isOpen" title="My Profile"></Header>
     <div class="flex-1 w-full space-y-5">
+      <Header @toggle-menu="toggleIsOpen" :isOpen="isOpen" title="My Profile"></Header>
       <div class="container px-5 mx-auto mt-2 mb-5">
         <div class="md:flex no-wrap md:-mx-2">
           <div class="w-full md:w-4/12 md:mx-2">
@@ -428,7 +428,7 @@
       </div>
     </div>
     <div
-      class="flex flex-col justify-center m-auto mb-16 text-xs text-center text-gray-600"
+      class="flex flex-col justify-center m-auto my-8 text-xs text-center text-gray-600"
     >
       <p class="font-bold">
         Built by <a href="/" class="font-extrabold underline">ComSwim</a>
@@ -449,7 +449,11 @@ export default {
       store.getProfile();
     });
 
-    return { store, isOpen };
+    const toggleIsOpen = () => {
+      isOpen.value = !isOpen.value
+    }
+
+    return { store, isOpen, toggleIsOpen };
   },
 };
 </script>
