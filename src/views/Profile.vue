@@ -4,7 +4,7 @@
     v-if="!store.loading.value && store.profileData.value"
   >
     <div class="flex-1 w-full space-y-5">
-      <Header @toggle-menu="toggleIsOpen" :isOpen="isOpen" title="My Profile"></Header>
+      <Navbar @toggle-menu="toggleIsOpen" :isOpen="isOpen" title="My Profile"></Navbar>
       <div class="container px-5 mx-auto mt-2 mb-5">
         <div class="md:flex no-wrap md:-mx-2">
           <div class="w-full md:w-4/12 md:mx-2">
@@ -17,8 +17,8 @@
                 />
               </div>
               <h1 class="my-1 text-xl font-bold leading-8 text-gray-900">
-                {{ store.profileData.value?.first_name }}
-                {{ store.profileData.value?.last_name }}
+                {{ store.profileData.value.first_name }}
+                {{ store.profileData.value.last_name }}
               </h1>
               <ul
                 class="px-3 py-2 mt-3 text-gray-600 bg-gray-100 divide-y rounded shadow-sm hover:text-gray-700 hover:shadow"
@@ -35,7 +35,7 @@
                 <li class="flex items-center py-3">
                   <span>Applied on:</span>
                   <span class="ml-auto"
-                    >{{ new Date(store.profileData.value?.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) }}</span
+                    >{{ new Date(store.profileData.value.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) }}</span
                   >
                 </li>
                 <li class="flex items-center py-3">
@@ -119,38 +119,38 @@
                   <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">First Name</div>
                     <div class="px-4 py-2">
-                      {{ store.profileData.value?.first_name }}
+                      {{ store.profileData.value.first_name }}
                     </div>
                   </div>
                   <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Last Name</div>
                     <div class="px-4 py-2">
-                      {{ store.profileData.value?.last_name }}
+                      {{ store.profileData.value.last_name }}
                     </div>
                   </div>
                   <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Gender</div>
                     <div class="px-4 py-2">
-                      {{ store.profileData.value?.user_profile.gender }}
+                      {{ store.profileData.value.user_profile.gender }}
                     </div>
                   </div>
                   <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Telephone</div>
                     <div class="px-4 py-2">
-                      {{ store.profileData.value?.user_profile.telephone }}
+                      {{ store.profileData.value.user_profile.telephone }}
                     </div>
                   </div>
                   <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Current Address</div>
                     <div class="px-4 py-2">
-                      {{ store.profileData.value?.address.postal_address }}
-                      {{ store.profileData.value?.address.residential_address }}
+                      {{ store.profileData.value.address.postal_address }}
+                      {{ store.profileData.value.address.residential_address }}
                     </div>
                   </div>
                   <div class="grid grid-cols-2">
                     <div class="px-4 py-2 font-semibold">Email</div>
                     <div class="px-4 py-2">
-                      {{ store.profileData.value?.email }}
+                      {{ store.profileData.value.email }}
                     </div>
                   </div>
                   <div class="grid grid-cols-2">
@@ -158,7 +158,7 @@
                     <div class="px-4 py-2">
                       {{
                         new Date(
-                          store.profileData.value?.user_profile.date_of_birth
+                          store.profileData.value.user_profile.date_of_birth
                         ).toLocaleDateString("en-US", {
                           month: "long",
                           day: "2-digit",
@@ -222,7 +222,7 @@
                   <p class="text-sm text-gray-600">Chest Disorders</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.chest_disorders
+                      store.profileData.value.health_info.chest_disorders
                         ? "Yes"
                         : "No"
                     }}
@@ -235,7 +235,7 @@
                   <p class="text-sm text-gray-600">Physical Injuries</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.physical_injuries
+                      store.profileData.value.health_info.physical_injuries
                         ? "Yes"
                         : "No"
                     }}
@@ -248,7 +248,7 @@
                   <p class="text-sm text-gray-600">Ear Disorders</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.ear_disorders
+                      store.profileData.value.health_info.ear_disorders
                         ? "Yes"
                         : "No"
                     }}
@@ -261,7 +261,7 @@
                   <p class="text-sm text-gray-600">Allergies</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.allergies
+                      store.profileData.value.health_info.allergies
                         ? "Yes"
                         : "No"
                     }}
@@ -274,7 +274,7 @@
                   <p class="text-sm text-gray-600">Heart Disorders</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.heart_disorders
+                      store.profileData.value.health_info.heart_disorders
                         ? "Yes"
                         : "No"
                     }}
@@ -287,7 +287,7 @@
                   <p class="text-sm text-gray-600">Lung Disorders</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.heart_disorders
+                      store.profileData.value.health_info.heart_disorders
                         ? "Yes"
                         : "No"
                     }}
@@ -300,7 +300,7 @@
                   <p class="text-sm text-gray-600">Low Muscle Tones</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.low_muscle_tones
+                      store.profileData.value.health_info.low_muscle_tones
                         ? "Yes"
                         : "No"
                     }}
@@ -313,7 +313,7 @@
                   <p class="text-sm text-gray-600">Wears Spectacles</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.wears_spectacles
+                      store.profileData.value.health_info.wears_spectacles
                         ? "Yes"
                         : "No"
                     }}
@@ -326,7 +326,7 @@
                   <p class="text-sm text-gray-600">Takes Medication</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.takes_medication
+                      store.profileData.value.health_info.takes_medication
                         ? "Yes"
                         : "No"
                     }}
@@ -339,7 +339,7 @@
                   <p class="text-sm text-gray-600">Past Swimming Lessons</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.past_swimming_lessons
+                      store.profileData.value.health_info.past_swimming_lessons
                         ? "Yes"
                         : "No"
                     }}
@@ -347,7 +347,7 @@
                 </div>
 
                 <div
-                  v-if="store.profileData.value?.health_info.past_swimming_lessons"
+                  v-if="store.profileData.value.health_info.past_swimming_lessons"
                   class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
                 >
                   <p class="text-sm text-gray-600">
@@ -355,7 +355,7 @@
                   </p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info
+                      store.profileData.value.health_info
                         .past_swimming_instructor_duration
                     }}
                   </p>
@@ -367,7 +367,7 @@
                   <p class="text-sm text-gray-600">Bad Experiences</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info.bad_experiences
+                      store.profileData.value.health_info.bad_experiences
                         ? "Yes"
                         : "No"
                     }}
@@ -380,7 +380,7 @@
                   <p class="text-sm text-gray-600">Medical Aid Membership</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value?.health_info
+                      store.profileData.value.health_info
                         .medical_aid_membership
                         ? "Yes"
                         : "No"
@@ -389,36 +389,36 @@
                 </div>
 
                 <div
-                  v-if="store.profileData.value?.health_info.medical_aid_membership"
+                  v-if="store.profileData.value.health_info.medical_aid_membership"
                   class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
                 >
                   <p class="text-sm text-gray-600">Medical Aid Name</p>
                   <p class="text-base font-medium text-navy-700">
-                    {{ store.profileData.value?.health_info.medical_aid_name }}
+                    {{ store.profileData.value.health_info.medical_aid_name }}
                   </p>
                 </div>
 
                 <div
                   v-if="
-                    store.profileData.value?.health_info.medical_aid_membership
+                    store.profileData.value.health_info.medical_aid_membership
                   "
                   class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
                 >
                   <p class="text-sm text-gray-600">Medical Aid Number</p>
                   <p class="text-base font-medium text-navy-700">
-                    {{ store.profileData.value?.health_info.medical_aid_number }}
+                    {{ store.profileData.value.health_info.medical_aid_number }}
                   </p>
                 </div>
 
                 <div
                   v-if="
-                    store.profileData.value?.health_info.medical_aid_membership
+                    store.profileData.value.health_info.medical_aid_membership
                   "
                   class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
                 >
                   <p class="text-sm text-gray-600">Medical Aid Main Member</p>
                   <p class="text-base font-medium text-navy-700">
-                    {{ store.profileData.value?.health_info.main_member_full_name }}
+                    {{ store.profileData.value.health_info.main_member_full_name }}
                   </p>
                 </div>
               </div>
