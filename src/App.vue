@@ -1,12 +1,12 @@
 <script setup>
-  import AuthSidebar from './components/AuthSidebar.vue'
+  import Sidebar from './components/Sidebar.vue'
 </script>
 
 <template>
   <div>
     <div class="flex h-screen">
       <div class="flex flex-row w-full">
-        <AuthSidebar />
+        <Sidebar />
         <router-view />
       </div>
     </div>

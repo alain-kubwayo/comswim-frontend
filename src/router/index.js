@@ -27,7 +27,8 @@ const routes = [
   {
     path: "/",
     name: "Welcome",
-    component: Welcome,
+    beforeEnter: guest,
+    component: Welcome
   },
   {
     path: "/login",
