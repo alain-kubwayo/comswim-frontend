@@ -14,7 +14,6 @@ export const useProfile = defineStore('profile', () => {
             .get('api/user-profile')
             .then(response => {
                 profileData.value = response.data.data;
-                console.log(response.data.data);
             })
             .catch(error => {
                 console.log(error);
