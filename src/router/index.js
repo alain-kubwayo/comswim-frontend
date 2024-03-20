@@ -61,7 +61,7 @@ const routes = [
     component: Profile,
   },
   {
-    path: "/user-profile/edit",
+    path: "/edit-profile",
     name: "EditProfile",
     component: EditProfile,
   },

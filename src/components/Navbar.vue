@@ -3,7 +3,6 @@
     <div class="flex flex-row items-center justify-between py-2">
       <router-link
         :to="{ name: 'Profile' }"
-        href="#"
         class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline"
         >{{ title }}</router-link
       >
@@ -38,11 +37,10 @@
           <div
             class="py-2 text-sm text-blue-800 bg-white border rounded-sm shadow-sm border-main-color"
           >
-            <a
+            <router-link
               class="inline-flex justify-center w-full px-4 py-2 mt-2 text-sm bg-white md:mt-0 focus:text-gray-900 hover:bg-indigo-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              href="#"
-              >Account Settings</a
-            >
+              :to="{ name: 'EditProfile' }"
+              >Edit Profile</router-link>
             <div class="border-b"></div>
             <form @submit.prevent="store.logout">
               <button
