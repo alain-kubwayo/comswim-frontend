@@ -852,7 +852,7 @@
 
 <script>
 import { onBeforeUnmount, ref } from "vue";
-import { useRegister } from "../stores/register";
+import { useRegister } from "@/stores/register";
 
 export default {
   setup() {

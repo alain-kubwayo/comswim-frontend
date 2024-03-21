@@ -22,7 +22,7 @@
     </div>
 </template>
 <script>
-import { useAuth } from "../stores/auth";
+import { useAuth } from "@/stores/auth";
 
 export default {
   setup() {

@@ -17,33 +17,14 @@ export const useProfile = defineStore('profile', () => {
         postal_address: ''
     });
 
-    async function getProfile() {
+    async function fetchData(url, update = false) {
         if(loading.value) return;
-
         loading.value = true;
-
-        return window.axios
-            .get('api/user-profile')
-            .then(response => {
-                profileData.value = response.data.data;
-            })
-            .catch(error => {
-                console.log(error);
-            })
-            .finally(() => {
-                loading.value = false;
-            })
-    }
-
-    async function getProfileEditables() {
-        if(loading.value) return;
-
-        loading.value = true;
-
-        return window.axios
-            .get('api/edit-profile')
-            .then(response => {
-                profileData.value = response.data.data;
+    
+        try {
+            const response = await window.axios.get(url);
+            profileData.value = response.data.data;
+            if(update) {
                 formData.first_name = profileData.value.first_name;
                 formData.last_name = profileData.value.last_name;
                 formData.guardian_first_name = profileData.value.guardian && profileData.value.guardian.guardian_first_name;
@@ -51,13 +32,20 @@ export const useProfile = defineStore('profile', () => {
                 formData.telephone = profileData.value.user_profile && profileData.value.user_profile.telephone;
                 formData.residential_address = profileData.value.address && profileData.value.address.residential_address;
                 formData.postal_address = profileData.value.address && profileData.value.address.postal_address;
-            })
-            .catch(error => {
-                console.log(error);
-            })
-            .finally(() => {
-                loading.value = false;
-            })
+            }
+        } catch(error) {
+            console.log(error);
+        } finally {
+            loading.value = false;
+        }
+    }
+
+    async function getProfile() {
+        await fetchData('api/user-profile');
+    }
+
+    async function getProfileEditables() {
+        await fetchData('api/edit-profile', true);
     }
 
     async function handleSubmit(user_type) {

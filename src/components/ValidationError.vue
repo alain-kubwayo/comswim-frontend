@@ -7,9 +7,21 @@
   </ul>
 </template>
 
-<script setup>
-import { ref, defineProps } from "vue";
-
-const props = defineProps(["errors", "field"]);
-const errors = ref(props.errors);
+<script>
+export default {
+  props: {
+    field: {
+      type: String,
+      required: true,
+    },
+    errors: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
+    const { field, errors } = props;
+    return { field, errors };
+  },
+};
 </script>

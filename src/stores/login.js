@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref, reactive } from "vue";
-import { useAuth } from "./auth";
+import { useAuth } from "@/stores/auth";
 
 export const useLogin = defineStore('login', () => {
     const auth = useAuth();
@@ -40,5 +40,4 @@ export const useLogin = defineStore('login', () => {
     }
 
     return { formData, errors, loading, resetForm, handleSubmit }
-
 })

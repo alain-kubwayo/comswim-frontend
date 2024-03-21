@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { useAuth } from "./auth";
+import { useAuth } from "@/stores/auth";
 import { reactive, ref } from "vue";
 
 export const useRegister = defineStore("register", () => {
