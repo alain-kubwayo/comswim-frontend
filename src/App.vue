@@ -1,7 +1,3 @@
-<script setup>
-  import Sidebar from './components/Sidebar.vue'
-</script>
-
 <template>
   <div>
     <div class="flex h-screen">
@@ -13,6 +9,11 @@
   </div>
 </template>
 
-<style scoped>
-  
-</style>
+<script>
+import Sidebar from "@/components/Sidebar.vue";
+export default {
+  components: {
+    Sidebar
+  },
+};
+</script>

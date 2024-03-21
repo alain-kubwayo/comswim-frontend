@@ -59,7 +59,7 @@
 
 <script>
 import { toRefs } from "vue";
-import { useAuth } from "../stores/auth";
+import { useAuth } from "@/stores/auth";
 export default {
   props: {
     isOpen: {

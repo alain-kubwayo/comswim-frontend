@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "../views/Login.vue";
-import Register from "../views/Register.vue";
-import LearnerRegister from "../views/LearnerRegister.vue";
-import ParentRegister from "../views/ParentRegister.vue";
-import Welcome from "../views/Welcome.vue";
-import Profile from "../views/Profile.vue";
-import EditProfile from "../views/EditProfile.vue";
+import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
+import LearnerRegister from "@/views/LearnerRegister.vue";
+import ParentRegister from "@/views/ParentRegister.vue";
+import Welcome from "@/views/Welcome.vue";
+import Profile from "@/views/Profile.vue";
+import EditProfile from "@/views/EditProfile.vue";
 
 function auth(to, from, next) {
   if (!localStorage.getItem("access_token")) {

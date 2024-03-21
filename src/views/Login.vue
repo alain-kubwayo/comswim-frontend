@@ -71,7 +71,7 @@
 
 <script>
 import { onBeforeUnmount } from "vue";
-import { useLogin } from "../stores/login";
+import { useLogin } from "@/stores/login";
 
 export default {
   setup() {

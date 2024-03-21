@@ -439,7 +439,7 @@
 
 <script>
 import { onMounted, ref } from "vue";
-import { useProfile } from "../stores/profile";
+import { useProfile } from "@/stores/profile";
 
 export default {
   setup() {
