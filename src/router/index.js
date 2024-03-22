@@ -6,6 +6,7 @@ import ParentRegister from "@/views/ParentRegister.vue";
 import Welcome from "@/views/Welcome.vue";
 import Profile from "@/views/Profile.vue";
 import EditProfile from "@/views/EditProfile.vue";
+import Level from "@/views/Level.vue";
 
 function auth(to, from, next) {
   if (!localStorage.getItem("access_token")) {
@@ -65,6 +66,11 @@ const routes = [
     name: "EditProfile",
     component: EditProfile,
   },
+  {
+    path: "/level",
+    name: "Level",
+    component: Level,
+  }
 ];
 
 const router = createRouter({
