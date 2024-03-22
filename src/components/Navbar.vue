@@ -1,11 +1,11 @@
 <template>
   <div class="container flex items-center w-full px-5 mx-auto bg-gray-200">
     <div class="flex flex-row items-center justify-between py-2">
-      <router-link
-        :to="{ name: 'Profile' }"
+      <h2
         class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline"
-        >{{ title }}</router-link
       >
+        {{ title }}
+      </h2>
     </div>
     <nav class="flex flex-row justify-end flex-grow pb-4 md:pb-0">
       <div class="relative">
@@ -40,7 +40,8 @@
             <router-link
               class="inline-flex justify-center w-full px-4 py-2 mt-2 text-sm bg-white md:mt-0 focus:text-gray-900 hover:bg-indigo-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
               :to="{ name: 'EditProfile' }"
-              >Edit Profile</router-link>
+              >Edit Profile</router-link
+            >
             <div class="border-b"></div>
             <form @submit.prevent="store.logout">
               <button
@@ -75,8 +76,8 @@ export default {
     const store = useAuth();
     const { isOpen, title } = toRefs(props);
     const toggleDropdown = () => {
-        context.emit('toggleMenu');
-    }
+      context.emit("toggleMenu");
+    };
 
     return { store, isOpen, title, toggleDropdown };
   },
