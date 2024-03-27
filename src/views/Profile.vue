@@ -4,17 +4,19 @@
     v-if="!store.loading.value && store.profileData.value"
   >
     <div class="flex-1 w-full space-y-5">
-      <Navbar @toggle-menu="toggleIsOpen" :isOpen="isOpen" title="My Profile"></Navbar>
+      <Navbar
+        @toggle-menu="toggleNav"
+        :isOpen="isOpen"
+        title="My Profile"
+        :firstName="store.profileData.value.first_name"
+        :lastName="store.profileData.value.last_name"
+      ></Navbar>
       <div class="container px-5 mx-auto mt-2 mb-5">
         <div class="md:flex no-wrap md:-mx-2">
           <div class="w-full md:w-4/12 md:mx-2">
             <div class="p-3 bg-white border-t-4 border-sky-800">
               <div class="overflow-hidden image">
-                <img
-                  class="w-full h-auto mx-auto"
-                  src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                  alt=""
-                />
+                <AvatarIcon />
               </div>
               <h1 class="my-1 text-xl font-bold leading-8 text-gray-900">
                 {{ store.profileData.value.first_name }}
@@ -34,15 +36,21 @@
                 </li>
                 <li class="flex items-center py-3">
                   <span>Applied on:</span>
-                  <span class="ml-auto"
-                    >{{ new Date(store.profileData.value.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) }}</span
-                  >
+                  <span class="ml-auto">{{
+                    new Date(
+                      store.profileData.value.created_at
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })
+                  }}</span>
                 </li>
                 <li class="flex items-center py-3">
                   <span>Managed by:</span>
-                  <span class="ml-auto"
-                    >{{ store.profileData.value.self === 0 ? 'Myself' : 'Guardian' }}</span
-                  >
+                  <span class="ml-auto">{{
+                    store.profileData.value.self === 0 ? "Myself" : "Guardian"
+                  }}</span>
                 </li>
               </ul>
             </div>
@@ -347,7 +355,9 @@
                 </div>
 
                 <div
-                  v-if="store.profileData.value.health_info.past_swimming_lessons"
+                  v-if="
+                    store.profileData.value.health_info.past_swimming_lessons
+                  "
                   class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
                 >
                   <p class="text-sm text-gray-600">
@@ -380,8 +390,7 @@
                   <p class="text-sm text-gray-600">Medical Aid Membership</p>
                   <p class="text-base font-medium text-navy-700">
                     {{
-                      store.profileData.value.health_info
-                        .medical_aid_membership
+                      store.profileData.value.health_info.medical_aid_membership
                         ? "Yes"
                         : "No"
                     }}
@@ -389,7 +398,9 @@
                 </div>
 
                 <div
-                  v-if="store.profileData.value.health_info.medical_aid_membership"
+                  v-if="
+                    store.profileData.value.health_info.medical_aid_membership
+                  "
                   class="flex flex-col justify-center rounded-2xl bg-gray-100 bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
                 >
                   <p class="text-sm text-gray-600">Medical Aid Name</p>
@@ -418,7 +429,9 @@
                 >
                   <p class="text-sm text-gray-600">Medical Aid Main Member</p>
                   <p class="text-base font-medium text-navy-700">
-                    {{ store.profileData.value.health_info.main_member_full_name }}
+                    {{
+                      store.profileData.value.health_info.main_member_full_name
+                    }}
                   </p>
                 </div>
               </div>
@@ -438,22 +451,18 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { useProfile } from "@/stores/profile";
+import { isOpen, toggleNav } from "@/composables/useNav";
 
 export default {
   setup() {
     const store = useProfile();
-    const isOpen = ref(false);
     onMounted(() => {
       store.getProfile();
     });
 
-    const toggleIsOpen = () => {
-      isOpen.value = !isOpen.value
-    }
-
-    return { store, isOpen, toggleIsOpen };
+    return { store, isOpen, toggleNav };
   },
 };
 </script>

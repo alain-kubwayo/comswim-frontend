@@ -64,12 +64,14 @@ const routes = [
   {
     path: "/edit-profile",
     name: "EditProfile",
-    component: EditProfile,
+    beforeEnter: auth,
+    component: EditProfile
   },
   {
     path: "/level",
     name: "Level",
-    component: Level,
+    beforeEnter: auth,
+    component: Level
   }
 ];
 

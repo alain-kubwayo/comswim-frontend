@@ -54,7 +54,7 @@
           :disabled="store.loading"
           class="flex items-center justify-center flex-none px-3 py-2 font-medium text-white border-2 rounded-lg border-sky-800 hover:border-black bg-sky-800 hover:bg-white hover:text-black md:px-4 md:py-3"
         >
-          <IconSpinner class="animate-spin" v-show="store.loading" />
+          <SpinnerIcon class="animate-spin" v-show="store.loading" />
           Sign in
         </button>
       </form>
