@@ -8,7 +8,7 @@
       >
         <video
           class="absolute object-cover min-w-full min-h-full"
-          src="../../src/assets/hero-video.mp4"
+          src="../../src/assets/videos/hero-video.mp4"
           type="video/mp4"
           autoplay
           muted

@@ -18,10 +18,10 @@
           spaceBetween: 20
         },
       }"
-      :class="hasVideo ? 'videos': 'photos'"
+      :class="mediaClass(mediaType)"
     >
       <swiper-slide v-for="(media, index) in medias" :key="index">
-        <template v-if="hasVideo">
+        <template v-if="mediaType === 'video'">
           <!-- <video
             autoplay
             muted
@@ -30,8 +30,11 @@
           ></video> -->
           <img :src="`/src/assets/images/${media}`" alt="Image" />
         </template>
-        <template v-else>
+        <template v-else-if="mediaType === 'photo'">
           <img :src="`/src/assets/images/${media}`" alt="Image" />
+        </template>
+        <template v-else>
+          <p class="my-4 text-center text-gray-600 uppercase">Media type <span class="font-bold">{{ mediaType }}</span> is not supported.</p>
         </template>
       </swiper-slide>
     </swiper>
@@ -51,10 +54,10 @@
         type: Array,
         required: true,
       },
-      hasVideo: {
-        type: Boolean,
-        required: false,
-        default: false,
+      mediaType: {
+        type: String,
+        required: true,
+        default: 'photo',
       },
     },
     components: {
@@ -62,10 +65,15 @@
       SwiperSlide,
     },
     setup(props) {
-      const { medias, hasVideo } = props;
+      const { medias, mediaType } = props;
+      const mediaClass = () => {
+        if(mediaType === 'video') return 'videos'
+        else if(mediaType === 'photo')  return 'photos'
+      }
       return {
         medias,
-        hasVideo,
+        mediaType,
+        mediaClass,
         modules: [Navigation, Pagination],
       };
     },
